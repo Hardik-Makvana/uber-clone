@@ -2,35 +2,75 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcrypt') ;
 const jwt = require('jsonwebtoken');
 
+// const userSchema = new mongoose.Schema({
+
+//   fullname: {
+//     firstname: {
+//       type: String,
+//       required: true ,
+//       minlength: [3, "First name must be alteast 3 character long  "],
+//     },
+
+//     lastname: {
+//       type: String,
+//       minlength: [3, "Last name must be alteast 3 character long  "],
+//     },
+//   },
+//   email: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//     minlength: [5, "email name must be alteast 5 character long  "],
+//   }, 
+//   password :{
+//     type: String,
+//     required: true,
+//     select : false ,
+//   },
+//   socketId : {
+//     type : String ,
+//   },
+
+
+// });
+
 const userSchema = new mongoose.Schema({
 
   fullname: {
     firstname: {
       type: String,
       required: true ,
-      minlength: [3, "First name must be alteast 3 character long  "],
+      minlength: [3, "First name must be atleast 3 character long"],
     },
-
     lastname: {
       type: String,
-      minlength: [3, "Last name must be alteast 3 character long  "],
+      minlength: [3, "Last name must be atleast 3 character long"],
     },
   },
+
   email: {
     type: String,
     required: true,
     unique: true,
-    minlength: [5, "email name must be alteast 5 character long  "],
-  }, 
-  password :{
-    type: String,
-    required: true,
-    select : false ,
-  },
-  socketId : {
-    type : String ,
+    minlength: [5, "email must be atleast 5 characters long"],
   },
 
+  password: {
+    type: String,
+    required: true,
+    select: false,
+  },
+
+  socketId: {
+    type: String,
+  },
+
+  // 🔥 ADD THIS
+  status: {
+    type: String,
+    enum: ["active", "inactive"],
+    default: "active"   // ✅ IMPORTANT
+  }
 
 });
 
