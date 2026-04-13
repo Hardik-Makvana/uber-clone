@@ -22,6 +22,10 @@ app.get('/' , (req , res ) =>{
     res.send("Hello World :")
 });
 
+app.use(cors({
+  origin: "https://uber-clone-1aduy.vercel.app",
+  credentials: true
+}));
 
 app.use('/users' , userRoutes);
 app.use('/captains' , captainRoutes);
