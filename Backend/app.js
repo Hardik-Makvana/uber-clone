@@ -13,6 +13,23 @@ const rideRoutes = require('./routes/ride.routes');
 
 connectToDb();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://qf71bj22-5173.inc1.devtunnels.ms",
+  "https://uber-clone-ruddy.vercel.app"
+];
+
+app.use(cors({
+  origin: function(origin, callback){
+    if(!origin || allowedOrigins.includes(origin)){
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
@@ -21,11 +38,6 @@ app.use(cookieParser());
 app.get('/' , (req , res ) =>{
     res.send("Hello World :")
 });
-
-app.use(cors({
-  origin: "https://uber-clone-ruddy.vercel.app",  // your ACTUAL vercel URL
-  credentials: true
-}));
 
 app.use('/users' , userRoutes);
 app.use('/captains' , captainRoutes);
