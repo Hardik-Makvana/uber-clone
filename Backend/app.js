@@ -23,7 +23,7 @@ app.get('/' , (req , res ) =>{
 });
 
 app.use(cors({
-  origin: "https://uber-clone-1aduy.vercel.app",
+  origin: "https://uber-clone-ruddy.vercel.app",  // your ACTUAL vercel URL
   credentials: true
 }));
 
