@@ -13,14 +13,35 @@ const rideRoutes = require('./routes/ride.routes');
 
 connectToDb();
 
+// const allowedOrigins = [
+//   "http://localhost:5173",
+//   "https://uber-clone-ebon.vercel.app"  ,
+//   'https://qf71bj22-5173.inc1.devtunnels.ms',
+// ];
+
+// app.use(cors({
+//   origin: function(origin, callback){
+//     if(!origin || allowedOrigins.includes(origin)){
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   credentials: true
+// }));
+
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://uber-clone-ebon.vercel.app"  // 🔥 ADD THIS
+  "https://uber-clone-ebon.vercel.app",
 ];
 
 app.use(cors({
   origin: function(origin, callback){
-    if(!origin || allowedOrigins.includes(origin)){
+    if (
+      !origin ||
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.devtunnels.ms')   // ✅ fix
+    ) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
@@ -28,6 +49,8 @@ app.use(cors({
   },
   credentials: true
 }));
+
+// app.options('/*', cors()); // ✅ fix
 
 app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
