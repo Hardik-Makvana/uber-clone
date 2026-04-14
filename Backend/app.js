@@ -32,6 +32,7 @@ connectToDb();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://uber-clone-ebon.vercel.app",
+  "https://uber-clone-9jmtx5jxx-hardik-makvanas-projects.vercel.app", // ✅ ADD THIS
 ];
 
 app.use(cors({
