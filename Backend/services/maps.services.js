@@ -9,6 +9,7 @@ module.exports.getAddressCoordinate = async (address) => {
   )}&key=${apiKey}`;
 
   try {
+    console.log("API KEY:", process.env.GOOGLE_MAPS_API_KEY);
     const response = await axios.get(url);
 
     console.log("FULL RESPONSE:", response.data); // 🔥 DEBUG
