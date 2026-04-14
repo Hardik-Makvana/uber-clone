@@ -29,7 +29,6 @@ connectToDb();
 //   },
 //   credentials: true
 // }));
-
 const allowedOrigins = [
   "http://localhost:5173",
   "https://uber-clone-ebon.vercel.app",
@@ -37,15 +36,18 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function(origin, callback){
-    if (
-      !origin ||
-      allowedOrigins.includes(origin) ||
-      origin.endsWith('.devtunnels.ms')   // ✅ fix
-    ) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
+    if (!origin) {
+      return callback(null, true);
     }
+
+    if (
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.devtunnels.ms')
+    ) {
+      return callback(null, true);
+    }
+
+    return callback(null, false); // ❌ don't throw error
   },
   credentials: true
 }));
