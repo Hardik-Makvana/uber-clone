@@ -38,7 +38,7 @@ A full-stack ride-hailing web application inspired by Uber, built with **React.j
 | Backend    | Node.js / Express.js|
 | Maps       | Google Maps API     |
 | Auth       | JWT / Session-based |
-| Database   | MongoDB  |
+| Database   | MongoDB              |
 
 ---
 
@@ -62,13 +62,13 @@ Make sure you have the following installed:
 
 2. **Install frontend dependencies**
    ```bash
-   cd client
+   cd Fronted
    npm install
    ```
 
 3. **Install backend dependencies**
    ```bash
-   cd ../server
+   cd ../Backend
    npm install
    ```
 
@@ -76,13 +76,13 @@ Make sure you have the following installed:
 
 5. **Start the backend server**
    ```bash
-   cd server
+   cd Backend
    npm start
    ```
 
 6. **Start the frontend app**
    ```bash
-   cd client
+   cd Fronted
    npm start
    ```
 
@@ -92,15 +92,15 @@ Make sure you have the following installed:
 
 ## 🔑 Environment Variables
 
-Create a `.env` file in both the `client/` and `server/` directories.
+Create a `.env` file in both the `Fronted/` and `Backend/` directories.
 
-**`client/.env`**
+**`Fronted/.env`**
 ```env
 REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 REACT_APP_API_BASE_URL=http://localhost:5000
 ```
 
-**`server/.env`**
+**`Backend/.env`**
 ```env
 PORT=5000
 JWT_SECRET=your_jwt_secret
@@ -115,7 +115,7 @@ MONGO_URI=your_mongodb_connection_string
 
 ```
 uber-clone/
-├── client/                  # React.js Frontend
+├── Fronted/                 # React.js Frontend
 │   ├── public/
 │   └── src/
 │       ├── components/      # Reusable UI components
@@ -123,7 +123,7 @@ uber-clone/
 │       ├── context/         # State management
 │       └── App.js
 │
-├── server/                  # Node.js Backend
+├── Backend/                 # Node.js Backend
 │   ├── controllers/         # Route logic
 │   ├── models/              # Database models
 │   ├── routes/              # API routes
