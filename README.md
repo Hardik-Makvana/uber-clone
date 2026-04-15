@@ -38,7 +38,7 @@ A full-stack ride-hailing web application inspired by Uber, built with **React.j
 | Backend    | Node.js / Express.js|
 | Maps       | Google Maps API     |
 | Auth       | JWT / Session-based |
-| Database   | *(add yours here)*  |
+| Database   | MongoDB  |
 
 ---
 
